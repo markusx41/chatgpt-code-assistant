@@ -81,7 +81,7 @@ Rewrite this intro in the style of 1980s hacking zines and also add ASCII art.
 
 Result:
 
-Greetings, fellow hackers!
+*Greetings, fellow hackers!
 
 Are you tired of using lame, mainstream tools to infiltrate the digital frontier? Look no further, because we've got the ultimate solution for all your hacking needs: our very own extension!
 
@@ -89,7 +89,7 @@ This bad boy is packed with all the features a true hacker could ever want: encr
 
 So why wait? Get your hands on this revolutionary tool and join the ranks of the elite hackers who are forging a new path in the digital world.
 
-Happy hacking!
+Happy hacking!*
 
 ___   ___   __   __   __   ___       __   __  __  __  __  
 |__  |__  |__) /__` |__) /__`     | /  \ |__) |__) |__) 
