@@ -56,7 +56,6 @@ Explain the code and focus on potential security vulnerabilities.
 
 Result:
 
-~~~
 This code is written in the Perl programming language. It appears to be reading some untrustworthy input from the user and then printing a welcome message. However, there are several potential security vulnerabilities in this code.
 
 First, the code reads in untrustworthy input from the user without properly sanitizing it. This means that the user could potentially enter malicious input that could be used to exploit the program.
@@ -66,7 +65,6 @@ Second, the code appears to be using the input in a command that is executed usi
 Third, the code writes the user's input to a file in the /tmp directory. This directory is often world-readable, which means that other users on the system could potentially read the contents of the file. Additionally, using a predictable file name in this directory could enable a symlink attack, where an attacker creates a symbolic link to a sensitive file and then tricks the program into writing to that file.
 
 Overall, this code has several potential security vulnerabilities that could be exploited by a malicious user. It is important to properly sanitize user input and avoid executing arbitrary commands or writing to predictable files in public directories.
-~~~
 
 ### Example Query (Text)
 
@@ -83,7 +81,6 @@ Rewrite this intro in the style of 1980s hacking zines and also add ASCII art.
 
 Result:
 
-~~~
 Greetings, fellow hackers!
 
 Are you tired of using lame, mainstream tools to infiltrate the digital frontier? Look no further, because we've got the ultimate solution for all your hacking needs: our very own extension!
@@ -98,8 +95,6 @@ ___   ___   __   __   __   ___       __   __  __  __  __
 |__  |__  |__) /__` |__) /__`     | /  \ |__) |__) |__) 
 |    |___ |  \ .__/ |  \ .__/     | \__/ |    |    |  \ 
                                                          
-
-~~~
 
 ## Known Issues
 
