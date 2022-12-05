@@ -15,12 +15,44 @@ async function activate(context) {
   // This line of code will only be executed once when your extension is activated
   console.log('"chatgpt-code-assistant" to your service!');
 
-  // Create a new terminal and execute a command
-  //const vscode = require('vscode');  
-  const newTerminal = vscode.window.createTerminal('ChatGPT Chat Server Terminal');
-  // // start the python server from the resources directory
+
+  // helpers
   const path = require('path');
+  const initializerPath = path.join(context.extensionPath, 'resources', 'chatgpt-api-server/init.sh');
   const serverPath = path.join(context.extensionPath, 'resources', 'chatgpt-api-server/server-start.sh');
+  const newTerminal = vscode.window.createTerminal('ChatGPT Chat Server Terminal');
+  const {execSync} = require('child_process');
+  const process = require('process');
+  
+  vscode.window.showInformationMessage("Setting up Virtual Python Environment...");
+  vscode.window.showInformationMessage("This can take a while on first run since it will download headless Chromium....just wait");
+  // Start the progress indicator
+vscode.window.withProgress({
+  location: vscode.ProgressLocation.Notification,
+  title: "Initializing Virtual Environment",
+  cancellable: true
+}, (progress, token) => {
+  // Set the progress message
+  progress.report({ message: "Operation in progress..." });
+
+  // Perform the long-running operation here
+  console.log(process.stdout.write(execSync(initializerPath).toString()));
+
+
+  // Return a promise that resolves when the operation is complete
+  return new Promise((resolve, reject) => {
+      // If the operation is cancelled, reject the promise
+      token.onCancellationRequested(() => {
+          reject();
+      });
+
+      // Resolve the promise when the operation is complete
+      resolve();
+  });
+});
+
+
+  // // start the python server from the resources directory
   console.log("Starting Python Chat Server at " + serverPath)
   newTerminal.sendText(serverPath);
   
@@ -31,7 +63,7 @@ async function activate(context) {
 
 
   let lastQuestions = [
-    "DO NOT SEND ANY SENSITIVE CONTENT / PRIVATE INFORMATION TO ChatGPT, it's only a POC",
+    "Why should you never send sensitive information to ChatGPT?", //DO NOT SEND ANY SENSITIVE CONTENT / PRIVATE INFORMATION TO ChatGPT, it's only a POC",
     "\n\nExplain the code and focus on potential security vulnerabilities.",
     `
 

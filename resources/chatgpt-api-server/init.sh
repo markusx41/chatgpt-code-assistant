@@ -2,7 +2,8 @@
 
 # init pyenv q&d -- this is all a hack / poc, don't forget.. ;)
 based=$(dirname $0)
-echo Entering $based
 cd $based
+virtualenv -p $(which python3) pyenv
 . pyenv/bin/activate 
-python3 server.py
+pip install -r requirements.txt
+playwright install

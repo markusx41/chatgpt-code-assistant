@@ -33,13 +33,13 @@ def send_message(message):
 
 def chat_incomplete():
     """Get the latest message"""
-    x_path = '#__next > div > div.flex.flex-1.flex-col.md\\:pl-52.h-full > main > div.Thread__PositionForm-sc-15plnpr-3.kWvvEa > form > div > div.PromptTextarea__LastItemActions-sc-4snkpf-3.gRmLdg > button'
-    page_elements = PAGE.query_selector_all(x_path)
-    return len(page_elements) == 0
+    x_path = '#__next > div > div > main > div > form > div > div > button'
+    buttonz = PAGE.query_selector(x_path)
+    return not buttonz.inner_text().__contains__("Try again")
     
 def get_last_message():
     """Get the latest message"""
-    page_elements = PAGE.query_selector_all("div[class*='ConversationItem__Message']")
+    page_elements = PAGE.query_selector_all("#__next > div > div > main > div > div > div > div > div > div")
     last_element = page_elements[-1]
     return last_element.inner_html()
 
@@ -67,9 +67,8 @@ def start_browser():
         print("Please log in to OpenAI Chat")
         print("Press enter when you're done")
         input()
-    else:
-        print("Logged in")
-        APP.run(port=5001, threaded=False)
+    
+    APP.run(port=5001, threaded=False)
 
 if __name__ == "__main__":
     start_browser()
