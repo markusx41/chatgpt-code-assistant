@@ -22,11 +22,14 @@ this installing them via `apt-get install python3 python3-pip virtualenv` should
 
 ## Synposis
 
-1. Install the requirements.
+1. Install the requirements and `npm install package.json` in the project's directory.
 2. Open the project in code.
 3. Hit F5 to open another code instance.
 4. Hit F1 and search for ChatGPT.
-5. Either add a new question to the list via "Add Question for ChatGPT", or query a fragment of code by
+5. Select one.
+6. **The first time you use this extension, it may take a while until something hapens since
+it will download Chromium.**
+7. Either add a new question to the list via "Add Question for ChatGPT", or query a fragment of code by
 selecting it in the editor, hitting F1 and then selecting a question via "Interview ChatGPT".
 
 *Interview ChatGPT* will send the following to ChatGPT:
