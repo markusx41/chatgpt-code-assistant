@@ -37,7 +37,7 @@ selecting it in the editor, hitting F1 and then selecting a question via "Interv
 <selected question>
 ~~~
 
-### Example Query (C Source Code Audit)
+### Example Query (Source Code Audit)
 
 Buggy code to be processed:
 
